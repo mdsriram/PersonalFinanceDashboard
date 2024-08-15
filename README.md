@@ -72,7 +72,7 @@ Log In: Use your registered credentials to log in. If you don’t have an accoun
    -  Date: The date of income.
 - Update Income: Edit existing income details as needed.
 - Delete Income: Remove any income records that are no longer needed.
-- 
+
 ### Track Expenses
 
 - Add Expense: Navigate to the "Add Expense" page to log a new expense:
@@ -121,13 +121,13 @@ Log In: Use your registered credentials to log in. If you don’t have an accoun
 ![image](https://github.com/user-attachments/assets/1e407a40-1199-47fa-baa4-0d1b6ea11686)
 
 - Budget
-
-![image](https://github.com/user-attachments/assets/54eec6b1-7323-4ee0-84e5-2921d2acaae4)
+  
+![image](https://github.com/user-attachments/assets/49ce3743-ec3c-40b9-8fb1-6044e1ea3ca5)
 
 - Savings
-
-![image](https://github.com/user-attachments/assets/77dd252e-b276-4eb5-8253-7375c72f6415)
   
+![image](https://github.com/user-attachments/assets/5b1d4c6c-88db-4666-b3fe-d4420c6c212f)
+ 
 - Profile
   
 ![image](https://github.com/user-attachments/assets/ef64d49c-b490-49bb-8d20-221212cfb940)
