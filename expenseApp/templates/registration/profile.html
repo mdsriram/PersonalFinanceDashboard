@@ -1,0 +1,144 @@
+{% extends "registration/base.html" %}
+
+{% block title %}Profile - Finance Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>User Profile</h2>
+  <p>Welcome, {{ request.user.username }}!</p>
+
+  <div class="chart-container">
+    <div class="chart">
+      <h3>Your Income Entries:</h3>
+      <canvas id="incomeChart"></canvas>
+    </div>
+
+    <div class="chart">
+      <h3>Your Expense Entries:</h3>
+      <canvas id="expenseChart"></canvas>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart">
+      <h3>Your Budget Overview:</h3>
+      <canvas id="budgetChart"></canvas>
+    </div>
+
+    <div class="chart">
+      <h3>Your Savings Goals:</h3>
+      <canvas id="savingsChart"></canvas>
+    </div>
+  </div>
+
+  
+</div>
+
+<style>
+  .chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between charts */
+  }
+
+  .chart {
+    flex: 1; /* Make each chart take up equal space */
+    min-width: 300px; /* Minimum width of each chart */
+    max-width: 500px; /* Maximum width of each chart */
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Income Chart
+    var incomeCtx = document.getElementById('incomeChart').getContext('2d');
+    var incomeChart = new Chart(incomeCtx, {
+        type: 'pie',
+        data: {
+            labels: {{ income_labels|safe }},
+            datasets: [{
+                data: {{ income_data|safe }},
+                backgroundColor: ['#4CAF50', '#FF9800', '#2196F3', '#FFEB3B'],
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+
+    // Expense Chart
+    var expenseCtx = document.getElementById('expenseChart').getContext('2d');
+    var expenseChart = new Chart(expenseCtx, {
+        type: 'bar',
+        data: {
+            labels: {{ expense_labels|safe }},
+            datasets: [{
+                data: {{ expense_data|safe }},
+                backgroundColor: '#FF6384',
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Budget Chart
+    var budgetCtx = document.getElementById('budgetChart').getContext('2d');
+    var budgetChart = new Chart(budgetCtx, {
+        type: 'line',
+        data: {
+            labels: {{ budget_labels|safe }},
+            datasets: [{
+                label: 'Budget Amount',
+                data: {{ budget_data|safe }},
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }, {
+                label: 'Remaining Budget',
+                data: {{ remaining_budget_data|safe }},
+                backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                borderColor: 'rgba(255, 159, 64, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Savings Chart
+    var savingsCtx = document.getElementById('savingsChart').getContext('2d');
+    var savingsChart = new Chart(savingsCtx, {
+        type: 'doughnut',
+        data: {
+            labels: {{ savings_labels|safe }},
+            datasets: [{
+              data: {{ savings_data|safe }},
+              backgroundColor: '#36A2EB',
+          }, {
+              data: {{ target_data|safe }},
+              backgroundColor: '#FFCE56',
+          }]
+      },
+      options: {
+          responsive: true
+      }
+  });
+</script>
+{% endblock %}

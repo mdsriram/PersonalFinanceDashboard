@@ -1,0 +1,19 @@
+<!--expense_breakdown.html-->
+{% extends "registration/base.html" %}
+
+{% block title %}Expense Breakdown by Category{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Expense Breakdown by Category</h2>
+    <ul>
+        {% for category in expenses_by_category %}
+            <li>{{ category.category__name }}: ${{ category.total }}</li>
+        {% empty %}
+            <li>No expense data available.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}" class="btn btn-primary">Back to Dashboard</a>
+</div>
+{% endblock %}
+

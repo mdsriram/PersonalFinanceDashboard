@@ -1,0 +1,5 @@
+#requirements.txt
+django==5.1 
+django-crispy-forms #for better form rendering and styling
+pillow #for handling image processing
+mysqlclient #db connection

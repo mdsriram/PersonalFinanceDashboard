@@ -1,0 +1,12 @@
+<!--monthly_expense.html-->
+{% extends "registration/base.html" %}
+
+{% block title %}Monthly Expenses{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Monthly Expenses</h2>
+    <p>Total expenses for this month: ${{ monthly_expense_total }}</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Back to Dashboard</a>
+</div>
+{% endblock %}

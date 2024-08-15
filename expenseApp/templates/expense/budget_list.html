@@ -1,0 +1,20 @@
+<!--budget_list.html-->
+{% extends 'registration/base.html' %}
+
+{% block title %}Budget List{% endblock %}
+
+{% block header %}Budget List{% endblock %}
+
+{% block content %}
+    <h1>Budget List</h1>
+    <a href="{% url 'budget_create' %}" class="btn btn-primary">Add New Budget</a>
+    <ul>
+        {% for budget in budgets %}
+        <li>
+                {{ budget.month }} - {{ budget.category.name }}: ${{ budget.amount }}
+                <a href="{% url 'budget_update' budget.id %}">Edit</a> | 
+        <a href="{% url 'budget_delete' budget.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

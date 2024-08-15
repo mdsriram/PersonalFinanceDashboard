@@ -1,0 +1,18 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<h2>Your Savings Goals</h2>
+<a href="{% url 'savings-create' %}">Add New Goal</a>
+<ul>
+    {% for saving in savings %}
+    <li>
+        <strong>{{ saving.name }}</strong>: ${{ saving.current_amount }} of ${{ saving.target_amount }}
+        <br>
+        Progress: {{ saving.progress_percentage }}%
+        <br>
+        <a href="{% url 'savings-update' saving.pk %}">Edit</a>
+        <a href="{% url 'savings-delete' saving.pk %}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

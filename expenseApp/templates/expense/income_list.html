@@ -1,0 +1,21 @@
+{% extends 'registration/base.html' %}
+
+{% block title %}Income List{% endblock %}
+
+{% block header %}Income List{% endblock %}
+
+{% block content %}
+    <h1>Income List</h1>
+    <a href="{% url 'income_create' %}" class="btn btn-primary">Add New Income</a>
+    <ul>
+        {% for income in object_list %}
+            <li>
+                {{ income.source }} - ${{ income.amount }} - {{ income.date }}
+                <a href="{% url 'income_update' income.pk %}">Edit</a>
+                <a href="{% url 'income_delete' income.pk %}">Delete</a>
+            </li>
+        {% empty %}
+            <li>No incomes available.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
