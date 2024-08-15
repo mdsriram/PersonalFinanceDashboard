@@ -1,16 +1,90 @@
 <!-- home.html -->
 {% extends "registration/base.html" %}
 
-{% block title %}Home - Finance Dashboard{% endblock %}
+{% load static %}
 
 {% block content %}
-<header>
-    <h1 class="text-center">Welcome to the Finance Dashboard</h1>
-</header>
-<main>
-    <div class="text-center">
-        <h2>Overview:</h2>
-        <p>The Finance Dashboard is designed to help you manage your personal finances with ease and efficiency. Whether you're tracking income, expenses, or setting up budgets, our dashboard provides an intuitive and comprehensive toolset to keep you on top of your financial goals.</p>
+<div class="container-fluid p-0">
+    <!-- Hero Section -->
+    <div class="hero-section text-center bg-primary text-white py-5">
+        <h1 class="display-4">Welcome to Your Finance Dashboard</h1>
+        <p class="lead">Manage your personal finances with ease and efficiency. Track income, expenses, savings, and budgets all in one place.</p>
     </div>
-</main>
+
+    <!-- Features Section -->
+    <div class="features-section container py-5">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                <h3>Track Your Expenses</h3>
+                <p>Monitor your spending habits and keep your finances under control with detailed tracking tools.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-wallet fa-3x text-primary mb-3"></i>
+                <h3>Manage Your Budget</h3>
+                <p>Set budgets, compare your income and expenses, and stay on track with your financial goals.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-piggy-bank fa-3x text-primary mb-3"></i>
+                <h3>Save More Money</h3>
+                <p>Identify saving opportunities and build a stronger financial future with our savings tools.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section bg-light py-5">
+        <div class="container text-center">
+            <h2>What Our Users Say</h2>
+            <p class="lead">See how our dashboard has helped people just like you manage their finances.</p>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"This dashboard transformed the way I manage my money!"</p>
+                        <footer class="blockquote-footer">Sarah, <cite title="Source Title">Freelancer</cite></footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"Simple, intuitive, and effective."</p>
+                        <footer class="blockquote-footer">James, <cite title="Source Title">Entrepreneur</cite></footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"I now have complete control over my finances."</p>
+                        <footer class="blockquote-footer">Maria, <cite title="Source Title">Designer</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="cta-section bg-primary text-white text-center py-5">
+        <h2 class="display-5">Ready to Take Control of Your Finances?</h2>
+        <a href="{% if user.is_authenticated %}{% url 'profile' %}{% else %}{% url 'register' %}{% endif %}" class="btn btn-light btn-lg mt-3">
+            {% if user.is_authenticated %}
+                Go to Profile
+            {% else %}
+                Sign Up Now
+            {% endif %}
+        </a>
+        {% if not user.is_authenticated %}
+            <a href="{% url 'login' %}" class="btn btn-light btn-lg mt-3">Log In</a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer bg-dark text-white text-center py-3">
+    <div class="container">
+        <p>&copy; 2024 Finance Dashboard. All rights reserved.</p>
+        <div>
+            <a href="#" class="text-white mx-2">Privacy Policy</a>
+            <a href="#" class="text-white mx-2">Terms of Service</a>
+            <a href="#" class="text-white mx-2">Contact Us</a>
+        </div>
+    </div>
+</footer>
 {% endblock %}
