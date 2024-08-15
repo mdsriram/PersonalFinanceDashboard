@@ -109,7 +109,28 @@ Log In: Use your registered credentials to log in. If you don’t have an accoun
 
 ### Screenshots
 - Dashboard Overview
+  
 ![image](https://github.com/user-attachments/assets/0181371f-8780-4c85-bcd8-61ee3913cd44)
+
+- Income Mangament/add/update/delete
+
+  ![image](https://github.com/user-attachments/assets/c6c364b1-73cf-49e3-9f58-84cf3a8e5046)
+
+- Expense
+  
+![image](https://github.com/user-attachments/assets/1e407a40-1199-47fa-baa4-0d1b6ea11686)
+
+- Budget
+
+![image](https://github.com/user-attachments/assets/54eec6b1-7323-4ee0-84e5-2921d2acaae4)
+
+- Savings
+
+![image](https://github.com/user-attachments/assets/77dd252e-b276-4eb5-8253-7375c72f6415)
+  
+- Profile
+  
+![image](https://github.com/user-attachments/assets/ef64d49c-b490-49bb-8d20-221212cfb940)
 
 ## Configuration
 
