@@ -2,6 +2,7 @@
 ## Overview
 
 The Finance Dashboard is a web application designed to help users manage their finances by tracking income, expenses, budget, and savings. The dashboard provides visualizations to give users insights into their financial health.
+
 ## Features
 
 - **Income Tracking:** Add, update, view, and delete income sources.
@@ -16,7 +17,6 @@ The Finance Dashboard is a web application designed to help users manage their f
 - **Frontend:** HTML, CSS, Chart.js
 - **Database:** SQLite (default with Django)
 ## Installation
-
 ### Prerequisites
 
 - Python 3.x
@@ -25,14 +25,7 @@ The Finance Dashboard is a web application designed to help users manage their f
 
 ### Set Up Environment Variables:
 
-Create a .env file in the root directory of the project and add your environment-specific settings. Refer to the .env.example for guidance
-SECRET_KEY=your-secret-key
-DEBUG=True
-DATABASE_NAME=your-database-name
-DATABASE_USER=your-database-user
-DATABASE_PASSWORD=your-database-password
-DATABASE_HOST=localhost
-DATABASE_PORT=5432
+Create a .env file in the root directory of the project and add your environment-specific settings.
 
 ### Run migrations
 
@@ -77,13 +70,18 @@ Log In: Use your registered credentials to log in. If you don’t have an accoun
 
 - Add Expense: Navigate to the "Add Expense" page to log a new expense:
     - Category: Select or create a category for the expense.
+         - Go to shell , python manage.py shell
+         - create categorie names like home_loan, energy_bill, utility_bill, transportation and so on
+         - Within the Shell:
+             - from app.models import Category
+             - Category.objects.create(name="Energy_bill") 
     - Description: Provide a brief description of the expense.
     - Amount: Enter the expense amount.
     - Date: Select the date of the expense.
 - Monthly Expenses: View the total expenses for the current month on the "Monthly Expenses" page.
 - Top Expenses: View the top 5 highest expenses for the current month on the "Top Expenses" page.
 - Expense Breakdown: Get a breakdown of expenses by category on the "Expense Breakdown" page.
- 
+  
 ### Manage Budgets
 
 - View Budgets: Go to the "Budget List" page to view all your budgets.
