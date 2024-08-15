@@ -1,10 +1,37 @@
 {% extends 'registration/base.html' %}
 
+{% load static %}
+
 {% block content %}
-<h2>{{ view.title }}</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
+<div class="container">
+    <h2 class="my-4 text-center">Add New Savings Goal</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ form.name.value }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="target_amount">Target Amount:</label>
+                    <input type="number" class="form-control" id="target_amount" name="target_amount" value="{{ form.target_amount.value }}" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="current_amount">Current Amount:</label>
+                    <input type="number" class="form-control" id="current_amount" name="current_amount" value="{{ form.current_amount.value }}" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="deadline">Deadline:</label>
+                    <input type="date" class="form-control" id="deadline" name="deadline" value="{{ form.deadline.value }}" required>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="{% url 'savings-list' %}" class="btn btn-secondary ml-2">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
+
